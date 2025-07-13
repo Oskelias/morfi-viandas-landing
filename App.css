@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;700&family=Work+Sans:wght@400;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #F9F4F2; /* Fondo suave */
+  --foreground: #444444; /* Gris profundo */
+  --card: #FFFFFF; /* Blanco puro */
+  --card-foreground: #444444; /* Gris profundo */
+  --popover: #FFFFFF; /* Blanco puro */
+  --popover-foreground: #444444; /* Gris profundo */
+  --primary: #008CA2; /* Turquesa oscuro */
+  --primary-foreground: #FFFFFF; /* Blanco puro */
+  --secondary: #A1D3D2; /* Turquesa pastel */
+  --secondary-foreground: #444444; /* Gris profundo */
+  --muted: #F9F4F2; /* Fondo suave */
+  --muted-foreground: #444444; /* Gris profundo */
+  --accent: #FFD144; /* Amarillo vibrante */
+  --accent-foreground: #000000; /* Negro */
+  --destructive: #FF0000; /* Rojo para errores */
+  --border: #A1D3D2; /* Turquesa pastel */
+  --input: #A1D3D2; /* Turquesa pastel */
+  --ring: #008CA2; /* Turquesa oscuro */
+  --chart-1: #0D99B9; /* Celeste vibrante */
+  --chart-2: #FFD144; /* Amarillo vibrante */
+  --chart-3: #008CA2; /* Turquesa oscuro */
+  --chart-4: #A1D3D2; /* Turquesa pastel */
+  --chart-5: #444444; /* Gris profundo */
+  --sidebar: #F9F4F2; /* Fondo suave */
+  --sidebar-foreground: #444444; /* Gris profundo */
+  --sidebar-primary: #008CA2; /* Turquesa oscuro */
+  --sidebar-primary-foreground: #FFFFFF; /* Blanco puro */
+  --sidebar-accent: #FFD144; /* Amarillo vibrante */
+  --sidebar-accent-foreground: #000000; /* Negro */
+  --sidebar-border: #A1D3D2; /* Turquesa pastel */
+  --sidebar-ring: #008CA2; /* Turquesa oscuro */
+
+  /* Nuevos colores para hover y variantes */
+  --turquesa-oscuro-hover: #006F7F;
+  --turquesa-pastel-claro: #E0F2F1;
+}
+
+.dark {
+  --background: #000000; /* Negro */
+  --foreground: #F9F4F2; /* Fondo suave */
+  --card: #444444; /* Gris profundo */
+  --card-foreground: #FFFFFF; /* Blanco puro */
+  --popover: #444444; /* Gris profundo */
+  --popover-foreground: #FFFFFF; /* Blanco puro */
+  --primary: #0D99B9; /* Celeste vibrante */
+  --primary-foreground: #000000; /* Negro */
+  --secondary: #008CA2; /* Turquesa oscuro */
+  --secondary-foreground: #FFFFFF; /* Blanco puro */
+  --muted: #444444; /* Gris profundo */
+  --muted-foreground: #A1D3D2; /* Turquesa pastel */
+  --accent: #FFD144; /* Amarillo vibrante */
+  --accent-foreground: #000000; /* Negro */
+  --destructive: #FF0000; /* Rojo para errores */
+  --border: #008CA2; /* Turquesa oscuro */
+  --input: #008CA2; /* Turquesa oscuro */
+  --ring: #0D99B9; /* Celeste vibrante */
+  --chart-1: #A1D3D2; /* Turquesa pastel */
+  --chart-2: #FFD144; /* Amarillo vibrante */
+  --chart-3: #008CA2; /* Turquesa oscuro */
+  --chart-4: #0D99B9; /* Celeste vibrante */
+  --chart-5: #444444; /* Gris profundo */
+  --sidebar: #000000; /* Negro */
+  --sidebar-foreground: #F9F4F2; /* Fondo suave */
+  --sidebar-primary: #0D99B9; /* Celeste vibrante */
+  --sidebar-primary-foreground: #FFFFFF; /* Blanco puro */
+  --sidebar-accent: #FFD144; /* Amarillo vibrante */
+  --sidebar-accent-foreground: #000000; /* Negro */
+  --sidebar-border: #008CA2; /* Turquesa oscuro */
+  --sidebar-ring: #0D99B9; /* Celeste vibrante */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Work Sans", sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Baloo Bhai 2", cursive;
+  }
+}
+
+

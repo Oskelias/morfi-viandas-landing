@@ -1,0 +1,484 @@
+import './App.css'
+import { useState } from 'react'
+import { Button } from './components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card'
+import { Badge } from './components/ui/badge'
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Users,
+  Home,
+  Building2,
+  CheckCircle,
+  Star,
+  ChefHat,
+  Truck,
+  Snowflake,
+  Package
+} from 'lucide-react'
+
+// Import images
+import heroImage from './assets/hero_meal_prep.jpg'
+import healthyTuppersImage from './assets/healthy_tuppers.jpg'
+import mealOrganizationImage from './assets/meal_organization.jpg'
+import corporateCateringImage from './assets/corporate_catering.jpg'
+import officeLunchImage from './assets/office_lunch.jpg'
+import morfiLogo from './assets/morfi-logo.png'
+
+function App() {
+  const [activeService, setActiveService] = useState('particulares')
+
+  const menuItems = [
+    { name: "Albóndigas a la portuguesa con puré de papas", price: "$7500", category: "Principal" },
+    { name: "Wok de pollo y vegetales con salsa de soja", price: "$7500", category: "Principal" },
+    { name: "Pechuga a la mostaza con papas al horno", price: "$7500", category: "Principal" },
+    { name: "Pollo al verdeo con crema y papas al horno", price: "$7500", category: "Principal" },
+    { name: "Pastel de papas", price: "$7500", category: "Principal" },
+    { name: "Suprema napolitana con puré mixto", price: "$7500", category: "Principal" },
+    { name: "Guiso de lentejas con carne", price: "$7500", category: "Principal" },
+    { name: "Ensaladas variadas", price: "$6500", category: "Ensaladas" }
+  ]
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-white shadow-sm sticky top-0 z-50 pb-16">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center relative">
+          <nav className="hidden md:flex space-x-8 text-lg">
+            <a href="#servicios" className="text-gray-600 hover:text-primary transition-colors">Servicios</a>
+            <a href="#como-funciona" className="text-gray-600 hover:text-primary transition-colors">Cómo funciona</a>
+            <a href="#menu" className="text-gray-600 hover:text-primary transition-colors">Menú</a>
+            <a href="#contacto" className="text-gray-600 hover:text-primary transition-colors">Contacto</a>
+          </nav>
+          <Button className="bg-primary hover:bg-turquesa-oscuro-hover">
+            <Phone className="h-4 w-4 mr-2" />
+            Contactar
+          </Button>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-turquesa-pastel-claro to-fondo-suave py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-5xl font-bold text-gray-800 mb-6 text-center">
+                En casa o en el trabajo, comé saludable todos los días.
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                Viandas frescas y nutritivas para particulares y empresas. 
+                Más de 10 años de experiencia brindando soluciones alimentarias de calidad.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-primary hover:bg-turquesa-oscuro-hover">
+                  Conocé nuestros planes
+                </Button>
+                <a href="https://www.pedidosporwhatsapp.com.ar/MorfiSemanal" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline" className="border-accent text-accent-foreground hover:bg-accent/10">
+                    Ver menú
+                  </Button>
+                </a>
+              </div>
+              <div className="mt-8 flex items-center space-x-6">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                  <span className="text-foreground">+10 años de experiencia</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                  <span className="text-gray-600">Entrega 24/7</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src={heroImage} 
+                alt="Viandas saludables Morfi" 
+                className="rounded-lg shadow-2xl w-full h-auto"
+              />
+              <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-lg shadow-lg">
+                <div className="flex items-center space-x-2">
+                  <Star className="h-4 w-4 text-amarillo-vibrante fill-current" />
+                  <span className="font-semibold">4.9/5</span>
+                  <span className="text-gray-600">+500 clientes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Servicios Section */}
+      <section id="servicios" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-bold text-gray-800 mb-4">Nuestros Servicios</h3>
+            <p className="text-xl text-gray-600">Soluciones alimentarias para cada necesidad</p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="bg-white rounded-lg p-2 shadow-md">
+              <Button
+                variant={activeService === 'particulares' ? 'default' : 'ghost'}
+                onClick={() => setActiveService('particulares')}
+                className={activeService === 'particulares' ? 'bg-primary hover:bg-turquesa-oscuro-hover' : ''}
+              >
+                <Home className="h-4 w-4 mr-2" />
+                Particulares
+              </Button>
+              <Button
+                variant={activeService === 'empresas' ? 'default' : 'ghost'}
+                onClick={() => setActiveService('empresas')}
+                className={activeService === 'empresas' ? 'bg-primary hover:bg-turquesa-oscuro-hover' : ''}
+              >
+                <Building2 className="h-4 w-4 mr-2" />
+                Empresas
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {activeService === 'particulares' ? (
+              <>
+                <div>
+                  <h4 className="text-3xl font-bold text-gray-800 mb-6">Para Particulares</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h5 className="font-semibold text-gray-800">Entrega a domicilio</h5>
+                        <p className="text-gray-600">Recibí tus viandas en la comodidad de tu hogar</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h5 className="font-semibold text-gray-800">Planes semanales</h5>
+                        <p className="text-gray-600">Organizá tu semana con nuestros packs personalizados</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h5 className="font-semibold text-gray-800">Variedad de opciones</h5>
+                        <p className="text-gray-600">Menú principal, vegetariano, ensaladas y más</p>
+                      </div>
+                    </div>
+                  </div>
+                  <Button className="mt-6 bg-primary hover:bg-turquesa-oscuro-hover">
+                    Ver planes particulares
+                  </Button>
+                </div>
+                <div>
+                  <img 
+                    src={healthyTuppersImage} 
+                    alt="Viandas para particulares" 
+                    className="rounded-lg shadow-lg w-full h-auto"
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <h4 className="text-3xl font-bold text-gray-800 mb-6">Para Empresas</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h5 className="font-semibold text-gray-800">Catering corporativo</h5>
+                        <p className="text-gray-600">Soluciones alimentarias para tu equipo de trabajo</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h5 className="font-semibold text-gray-800">Menús grupales</h5>
+                        <p className="text-gray-600">Opciones variadas para satisfacer todos los gustos</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-6 w-6 text-primary mt-1" />
+                      <div>
+                        <h5 className="font-semibold text-gray-800">Entrega coordinada</h5>
+                        <p className="text-gray-600">Horarios flexibles adaptados a tu empresa</p>
+                      </div>
+                    </div>
+                  </div>
+                  <Button className="mt-6 bg-primary hover:bg-turquesa-oscuro-hover">
+                    Solicitar cotización empresarial
+                  </Button>
+                </div>
+                <div>
+                  <img 
+                    src={corporateCateringImage} 
+                    alt="Catering empresarial" 
+                    className="rounded-lg shadow-lg w-full h-auto"
+                  />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Cómo Funciona Section */}
+      <section id="como-funciona" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-bold text-gray-800 mb-4">Cómo Funciona</h3>
+            <p className="text-xl text-gray-600">Simple, rápido y conveniente</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="mx-auto w-16 h-16 bg-turquesa-pastel-claro rounded-full flex items-center justify-center mb-4">
+                  <Package className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="text-xl">1. Elegí tu plan</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Seleccioná entre nuestros planes para particulares o empresas, 
+                  y personalizá tu menú según tus preferencias.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="mx-auto w-16 h-16 bg-amarillo-vibrante-claro rounded-full flex items-center justify-center mb-4">
+                  <ChefHat className="h-8 w-8 text-turquesa-oscuro" />
+                </div>
+                <CardTitle className="text-xl">2. Preparamos tu comida</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Nuestros chefs preparan tus viandas frescas con ingredientes de calidad, 
+                  envasadas con sistema termosellado.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                  <Truck className="h-8 w-8 text-turquesa-oscuro" />
+                </div>
+                <CardTitle className="text-xl">3. Recibí en tiempo</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Entrega puntual en fecha y horario coordinado. 
+                  Listo para calentar y disfrutar.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Características Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold text-gray-800 mb-4">¿Por qué elegir Morfi Viandas?</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="mx-auto w-16 h-16 bg-turquesa-pastel-claro rounded-full flex items-center justify-center mb-4">
+                <Snowflake className="h-8 w-8 text-primary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Sistema Termosellado</h4>
+              <p className="text-gray-600">
+                Envasado especial que mantiene la frescura hasta 5 días en heladera 
+                o 3 meses congelado.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                <Package className="h-8 w-8 text-orange-600" />
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Pack Semanal</h4>
+              <p className="text-gray-600">
+                Armá tu pack semanal a medida. Descuentos especiales en compras 
+                superiores a $50.000.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <Clock className="h-8 w-8 text-blue-600" />
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Atención 24/7</h4>
+              <p className="text-gray-600">
+                Horario de atención de lunes a domingo las 24 horas. 
+                Siempre disponibles para vos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Menú Section */}
+      <section id="menu" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-bold text-gray-800 mb-4">Nuestro Menú</h3>
+            <p className="text-xl text-gray-600">Variedad y sabor en cada vianda</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {menuItems.map((item, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <CardTitle className="text-lg">{item.name}</CardTitle>
+                    <Badge variant="secondary">{item.category}</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex justify-between items-center">
+                    <span className="text-2xl font-bold text-primary">{item.price}</span>
+                    <Button size="sm" className="bg-primary hover:bg-turquesa-oscuro-hover">
+                      Agregar
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <a href="https://www.pedidosporwhatsapp.com.ar/MorfiSemanal" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-turquesa-pastel-claro">
+                Ver menú completo
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold text-gray-800 mb-4">Preguntas Frecuentes</h3>
+          </div>
+          
+          <div className="max-w-3xl mx-auto space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>¿Cuánto duran las viandas?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Nuestras viandas con sistema termosellado se pueden refrigerar hasta 5 días 
+                  en heladera o congelar hasta 3 meses.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>¿Hacen entregas a empresas?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Sí, ofrecemos servicios especializados para empresas con menús grupales 
+                  y horarios de entrega flexibles.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>¿Cuál es el pedido mínimo?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Para packs semanales, ofrecemos descuentos en compras superiores a $50.000 
+                  con el cupón PACK.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Contacto Section */}
+      <section id="contacto" className="py-20 bg-primary text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-bold mb-4">Empezá hoy con Morfi Viandas</h3>
+            <p className="text-xl opacity-90">Contactanos y descubrí la comodidad de comer bien sin cocinar</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <Phone className="h-6 w-6" />
+                  <div>
+                    <h4 className="font-semibold">WhatsApp</h4>
+                    <p className="opacity-90">221 604 4455 (Viandas diarias)</p>
+                    <p className="opacity-90">221 561 3886 (Viandas congeladas)</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4">
+                  <MapPin className="h-6 w-6" />
+                  <div>
+                    <h4 className="font-semibold">Ubicación</h4>
+                    <p className="opacity-90">Calle 8 entre 45 y 46, La Plata</p>
+                    <p className="opacity-90">Viamonte 840, CABA</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4">
+                  <Clock className="h-6 w-6" />
+                  <div>
+                    <h4 className="font-semibold">Horarios</h4>
+                    <p className="opacity-90">Lunes a Domingo 24hs</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+                <h4 className="text-2xl font-bold mb-4">¿Listo para empezar?</h4>
+                <p className="mb-6 opacity-90">
+                  Hacé tu primer pedido y descubrí por qué somos la mejor opción 
+                  en viandas saludables.
+                </p>
+                <div className="space-y-4">
+                  <Button size="lg" className="w-full bg-white text-primary hover:bg-gray-100">
+                    <Phone className="h-4 w-4 mr-2" />
+                    Contactar por WhatsApp
+                  </Button>
+                  <a href="https://www.pedidosporwhatsapp.com.ar/MorfiSemanal" target="_blank" rel="noopener noreferrer">
+                    <Button size="lg" variant="outline" className="w-full border-white text-white hover:bg-white/10">
+                      Ver menú completo
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/80">
+            <p>&copy; 2025 Morfi Viandas. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default App
+
