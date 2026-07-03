@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Fraunces", serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: #FBF7F0; /* Crema cálido */
+  --foreground: #2B2621; /* Marrón casi negro */
+  --card: #FFFFFF;
+  --card-foreground: #2B2621;
+  --popover: #FFFFFF;
+  --popover-foreground: #2B2621;
+  --primary: #C1440E; /* Terracota */
+  --primary-foreground: #FFF9F2;
+  --secondary: #2F5233; /* Verde bosque */
+  --secondary-foreground: #FFF9F2;
+  --muted: #F1E9DC; /* Beige suave */
+  --muted-foreground: #6B6055;
+  --accent: #E8A33D; /* Mostaza dorado */
+  --accent-foreground: #2B2621;
+  --destructive: #B3261E;
+  --border: #E7DDCC;
+  --input: #E7DDCC;
+  --ring: #C1440E;
+  --chart-1: #C1440E;
+  --chart-2: #2F5233;
+  --chart-3: #E8A33D;
+  --chart-4: #6B8F71;
+  --chart-5: #6B6055;
+  --sidebar: #FBF7F0;
+  --sidebar-foreground: #2B2621;
+  --sidebar-primary: #C1440E;
+  --sidebar-primary-foreground: #FFF9F2;
+  --sidebar-accent: #E8A33D;
+  --sidebar-accent-foreground: #2B2621;
+  --sidebar-border: #E7DDCC;
+  --sidebar-ring: #C1440E;
+
+  --primary-hover: #A23809;
+  --tint-primary: #FBEAE0; /* Terracota muy claro, para fondos */
+  --tint-secondary: #E4EBE1; /* Verde muy claro, para fondos */
+}
+
+.dark {
+  --background: #201C18;
+  --foreground: #F1E9DC;
+  --card: #2B2621;
+  --card-foreground: #F1E9DC;
+  --popover: #2B2621;
+  --popover-foreground: #F1E9DC;
+  --primary: #E0602A;
+  --primary-foreground: #201C18;
+  --secondary: #4C7A52;
+  --secondary-foreground: #F1E9DC;
+  --muted: #332E28;
+  --muted-foreground: #C6BBAC;
+  --accent: #E8A33D;
+  --accent-foreground: #201C18;
+  --destructive: #FF6B60;
+  --border: #3A342D;
+  --input: #3A342D;
+  --ring: #E0602A;
+  --chart-1: #E0602A;
+  --chart-2: #4C7A52;
+  --chart-3: #E8A33D;
+  --chart-4: #8FB596;
+  --chart-5: #C6BBAC;
+  --sidebar: #201C18;
+  --sidebar-foreground: #F1E9DC;
+  --sidebar-primary: #E0602A;
+  --sidebar-primary-foreground: #201C18;
+  --sidebar-accent: #E8A33D;
+  --sidebar-accent-foreground: #201C18;
+  --sidebar-border: #3A342D;
+  --sidebar-ring: #E0602A;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", serif;
+    letter-spacing: -0.01em;
+  }
+}
