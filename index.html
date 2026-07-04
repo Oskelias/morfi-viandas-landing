@@ -3,10 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/morfi-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Viandas frescas y saludables para particulares y empresas en CABA y La Plata. Pedí por WhatsApp y recibí en tu casa o en tu oficina." />
-    <meta name="theme-color" content="#C1440E" />
-    <title>Morfi Viandas - Comida saludable para tu día a día</title>
+
+    <title>Morfi Alimentación — Viandas frescas en CABA y La Plata</title>
+    <meta name="description" content="Viandas frescas, saludables y termoselladas para particulares y empresas en CABA y La Plata. Elegí tu menú y pedí por WhatsApp o en la tienda de tu ciudad." />
+    <meta name="theme-color" content="#008CA2" />
+    <link rel="canonical" href="https://morfiviandas.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Morfi Alimentación" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="Morfi Alimentación — Viandas frescas en CABA y La Plata" />
+    <meta property="og:description" content="Viandas frescas, saludables y termoselladas para particulares y empresas. Comé rico y saludable, sin cocinar." />
+    <meta property="og:url" content="https://morfiviandas.com/" />
+    <meta property="og:image" content="https://morfiviandas.com/morfi-logo.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Morfi Alimentación — Viandas frescas en CABA y La Plata" />
+    <meta name="twitter:description" content="Viandas frescas y saludables para particulares y empresas. Comé rico y saludable, sin cocinar." />
+    <meta name="twitter:image" content="https://morfiviandas.com/morfi-logo.png" />
+
+    <!-- Datos estructurados: marca + las dos sedes -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://morfiviandas.com/#org",
+          "name": "Morfi Alimentación",
+          "url": "https://morfiviandas.com/",
+          "logo": "https://morfiviandas.com/morfi-logo.png",
+          "description": "Ecosistema de alimentación: viandas frescas, catering para empresas y más."
+        },
+        {
+          "@type": "FoodEstablishment",
+          "name": "Morfi Viandas — CABA",
+          "parentOrganization": { "@id": "https://morfiviandas.com/#org" },
+          "servesCuisine": "Viandas saludables",
+          "url": "https://morfiviandas.com/",
+          "telephone": "+54-9-221-604-4455",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Marcelo T. de Alvear 628",
+            "addressLocality": "Ciudad Autónoma de Buenos Aires",
+            "addressRegion": "CABA",
+            "addressCountry": "AR"
+          }
+        },
+        {
+          "@type": "FoodEstablishment",
+          "name": "Morfi Viandas — La Plata",
+          "parentOrganization": { "@id": "https://morfiviandas.com/#org" },
+          "servesCuisine": "Viandas saludables",
+          "url": "https://morfiviandas.com/",
+          "telephone": "+54-9-221-561-3886",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle 8 665, entre 45 y 46",
+            "addressLocality": "La Plata",
+            "addressRegion": "Buenos Aires",
+            "addressCountry": "AR"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
