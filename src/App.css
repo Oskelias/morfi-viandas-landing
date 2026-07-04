@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 6px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -27,106 +27,127 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Fraunces", serif;
+
+  /* brand extras (usados directo en clases arbitrarias) */
+  --color-teal-night: var(--teal-night);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-celeste: var(--brand-celeste);
+  --color-spark: var(--spark);
+  --color-u-viandas: var(--u-viandas);
+  --color-u-empresas: var(--u-empresas);
+  --color-u-performance: var(--u-performance);
+  --color-u-market: var(--u-market);
+  --color-u-pet: var(--u-pet);
+
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Hanken Grotesk", sans-serif;
+  --font-editorial: "Fraunces", Georgia, serif;
+  --font-mono: "SF Mono", ui-monospace, "Cascadia Code", Menlo, monospace;
 }
 
 :root {
   --radius: 1rem;
-  --background: #FBF7F0; /* Crema cálido */
-  --foreground: #2B2621; /* Marrón casi negro */
-  --card: #FFFFFF;
-  --card-foreground: #2B2621;
-  --popover: #FFFFFF;
-  --popover-foreground: #2B2621;
-  --primary: #C1440E; /* Terracota */
-  --primary-foreground: #FFF9F2;
-  --secondary: #2F5233; /* Verde bosque */
-  --secondary-foreground: #FFF9F2;
-  --muted: #F1E9DC; /* Beige suave */
-  --muted-foreground: #6B6055;
-  --accent: #E8A33D; /* Mostaza dorado */
-  --accent-foreground: #2B2621;
-  --destructive: #B3261E;
-  --border: #E7DDCC;
-  --input: #E7DDCC;
-  --ring: #C1440E;
-  --chart-1: #C1440E;
-  --chart-2: #2F5233;
-  --chart-3: #E8A33D;
-  --chart-4: #6B8F71;
-  --chart-5: #6B6055;
-  --sidebar: #FBF7F0;
-  --sidebar-foreground: #2B2621;
-  --sidebar-primary: #C1440E;
-  --sidebar-primary-foreground: #FFF9F2;
-  --sidebar-accent: #E8A33D;
-  --sidebar-accent-foreground: #2B2621;
-  --sidebar-border: #E7DDCC;
-  --sidebar-ring: #C1440E;
 
-  --primary-hover: #A23809;
-  --tint-primary: #FBEAE0; /* Terracota muy claro, para fondos */
-  --tint-secondary: #E4EBE1; /* Verde muy claro, para fondos */
+  --background: #F9F4F2;      /* hueso cálido */
+  --foreground: #12262A;      /* carbón con sesgo teal */
+  --card: #FFFFFF;
+  --card-foreground: #12262A;
+  --popover: #FFFFFF;
+  --popover-foreground: #12262A;
+
+  --primary: #008CA2;         /* turquesa Morfi */
+  --primary-foreground: #FFFFFF;
+  --secondary: #E3EFEF;       /* tinte teal suave */
+  --secondary-foreground: #0B3A42;
+  --muted: #EFEAE5;           /* masa */
+  --muted-foreground: #566264;
+  --accent: #ECE6E0;          /* hover neutro (shadcn) */
+  --accent-foreground: #12262A;
+  --destructive: #C0362B;
+
+  --border: #E6DCD6;
+  --input: #E6DCD6;
+  --ring: #008CA2;
+
+  /* marca */
+  --brand-teal: #008CA2;
+  --brand-celeste: #0D99B9;
+  --teal-night: #0B2A30;
+  --spark: #FFD144;           /* amarillo, chispa */
+  --spark-ink: #3B2E00;
+  --tint-teal: #D8ECEE;
+
+  /* acentos por unidad */
+  --u-viandas: #008CA2;
+  --u-empresas: #1B4B6B;
+  --u-performance: #2FA36B;
+  --u-market: #E0A200;
+  --u-pet: #B5643C;
 }
 
 .dark {
-  --background: #201C18;
-  --foreground: #F1E9DC;
-  --card: #2B2621;
-  --card-foreground: #F1E9DC;
-  --popover: #2B2621;
-  --popover-foreground: #F1E9DC;
-  --primary: #E0602A;
-  --primary-foreground: #201C18;
-  --secondary: #4C7A52;
-  --secondary-foreground: #F1E9DC;
-  --muted: #332E28;
-  --muted-foreground: #C6BBAC;
-  --accent: #E8A33D;
-  --accent-foreground: #201C18;
+  --background: #0A1D21;       /* teal-night */
+  --foreground: #EAF2F1;
+  --card: #0F272C;
+  --card-foreground: #EAF2F1;
+  --popover: #0F272C;
+  --popover-foreground: #EAF2F1;
+
+  --primary: #23B7CE;
+  --primary-foreground: #04191D;
+  --secondary: #123840;
+  --secondary-foreground: #EAF2F1;
+  --muted: #123036;
+  --muted-foreground: #9DB5B4;
+  --accent: #16383F;
+  --accent-foreground: #EAF2F1;
   --destructive: #FF6B60;
-  --border: #3A342D;
-  --input: #3A342D;
-  --ring: #E0602A;
-  --chart-1: #E0602A;
-  --chart-2: #4C7A52;
-  --chart-3: #E8A33D;
-  --chart-4: #8FB596;
-  --chart-5: #C6BBAC;
-  --sidebar: #201C18;
-  --sidebar-foreground: #F1E9DC;
-  --sidebar-primary: #E0602A;
-  --sidebar-primary-foreground: #201C18;
-  --sidebar-accent: #E8A33D;
-  --sidebar-accent-foreground: #201C18;
-  --sidebar-border: #3A342D;
-  --sidebar-ring: #E0602A;
+
+  --border: #21454C;
+  --input: #21454C;
+  --ring: #23B7CE;
+
+  --brand-teal: #23B7CE;
+  --brand-celeste: #3FC3D8;
+  --teal-night: #04161A;
+  --spark: #FFD144;
+  --spark-ink: #3B2E00;
+  --tint-teal: #123840;
+
+  --u-viandas: #23B7CE;
+  --u-empresas: #6FA8C9;
+  --u-performance: #48C088;
+  --u-market: #FFD144;
+  --u-pet: #D0895E;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Fraunces", serif;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
+  .font-editorial { font-family: var(--font-editorial); font-style: italic; font-weight: 500; }
+  .font-mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  /* micro-motivo: eco turquesa desplazado, guiño al logo */
+  .teal-echo { text-shadow: 3px 3px 0 var(--brand-teal); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
 }
