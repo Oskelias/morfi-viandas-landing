@@ -33,7 +33,7 @@ import officeLunchImage from './assets/office_lunch.jpg'
 
 /* ────────────────────────────────────────────────────────────
    Enlaces externos. Las tiendas viven en la plataforma propia,
-   por ciudad. TODO: confirmar las URLs reales de cada tienda.
+   por ciudad. El pedido y el menú completo se resuelven ahí.
 ──────────────────────────────────────────────────────────────*/
 const STORE_URL = {
   caba: 'https://morfiviandas.com.ar/caba',
@@ -88,11 +88,14 @@ const FAQS = [
 /* ── hooks ── */
 function useReveal() {
   useEffect(() => {
-    if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return
-    const els = document.querySelectorAll('.reveal')
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const els = Array.from(document.querySelectorAll('.reveal'))
+    // Aplicar el estado oculto solo ahora que el JS corre: si esto no ejecuta,
+    // el contenido permanece visible.
+    els.forEach((el) => el.classList.add('reveal-pre'))
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }),
-      { threshold: 0.12 },
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.remove('reveal-pre'); io.unobserve(e.target) } }),
+      { threshold: 0.1, rootMargin: '0px 0px -8% 0px' },
     )
     els.forEach((el) => io.observe(el))
     return () => io.disconnect()
