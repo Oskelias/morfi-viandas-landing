@@ -38,7 +38,7 @@ async function main() {
   const accessToken = await getAccessToken();
 
   const { data } = await axios.post(
-    `https://googleads.googleapis.com/${API_VERSION}/customers/${LOGIN_CUSTOMER_ID}/customers:createCustomerClient`,
+    `https://googleads.googleapis.com/${API_VERSION}/customers/${LOGIN_CUSTOMER_ID}:createCustomerClient`,
     {
       customerClient: {
         descriptiveName: "Etiquetar.app",
