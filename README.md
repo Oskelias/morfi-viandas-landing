@@ -1,106 +1,74 @@
-# Morfi Viandas - Landing Page
+# Morfi Alimentación — Sitio
 
-Landing page profesional para Morfi Viandas, empresa de viandas saludables en Argentina.
+Sitio institucional (escaparate) de **Morfi Alimentación**, el ecosistema de
+alimentación de Morfi: viandas, empresas y, próximamente, performance, market y
+Gaucho Pet.
 
-## 🚀 Características
+El sitio **informa y deriva**: no procesa pagos ni stock. El pedido y el menú
+completo se resuelven en las tiendas por ciudad (plataforma propia), y el
+contacto comercial va por WhatsApp.
 
-- **Diseño responsive** - Se adapta a móviles y desktop
-- **Logo personalizado** - Solo "MORFI" sin redundancia
-- **Enlaces funcionales** - Botones que conectan al WhatsApp de pedidos
-- **Secciones optimizadas** - Hero, Servicios, Cómo funciona, Menú, FAQ, Contacto
-- **Información actualizada** - Locales, teléfonos y horarios correctos
+## 🧭 Enfoque
 
-## 📱 URL Actual
+- **Escaparate, no tienda.** Los botones de pedido derivan a la tienda de la
+  ciudad elegida (CABA / La Plata). El sitio nunca finge ser un checkout.
+- **Marca madre + unidades.** Viandas y Empresas están activas; Performance,
+  Market y Gaucho Pet aparecen como "próximamente" con captura de interés.
+- **Selección de ciudad** persistente (se recuerda) que define a qué tienda
+  apuntan los enlaces.
 
-**Producción:** https://tyfkttsb.manus.space
-**Dominio personalizado:** www.morfiviandas.com.ar (en propagación)
+## 🔗 Enlaces (fuente única de verdad)
+
+Definidos en `src/App.jsx`:
+
+- **Tienda CABA:** https://morfiviandas.com.ar/caba
+- **Tienda La Plata:** https://morfiviandas.com.ar/laplata
+- **WhatsApp viandas diarias:** https://wa.me/5492216044455
+- **WhatsApp viandas congeladas:** https://wa.me/5492215613886
+
+> La antigua plataforma *pedidosporwhatsapp.com.ar* quedó discontinuada — no se
+> usa más en ningún lado del sitio.
 
 ## 🛠️ Tecnologías
 
-- React 18
-- Vite
-- Tailwind CSS
-- Lucide React (iconos)
-- shadcn/ui (componentes)
+- React 19 + Vite
+- Tailwind CSS 4 + shadcn/ui
+- lucide-react (íconos)
+- Tipografía: Bricolage Grotesque (títulos), Hanken Grotesk (texto),
+  Fraunces (acentos editoriales)
 
-## 💻 Desarrollo Local
+## 💻 Desarrollo
 
-### Prerrequisitos
-- Node.js 18+
-- npm o pnpm
-
-### Instalación
 ```bash
-# Clonar el repositorio
-git clone [URL_DEL_REPO]
-cd morfi-viandas-landing
-
-# Instalar dependencias
-npm install
-
-# Ejecutar en desarrollo
-npm run dev
+pnpm install        # o npm install
+pnpm run dev        # servidor de desarrollo (http://localhost:5173)
+pnpm run build      # build de producción
+pnpm run preview    # preview del build
 ```
 
-### Scripts disponibles
-```bash
-npm run dev      # Servidor de desarrollo
-npm run build    # Build para producción
-npm run preview  # Preview del build
-```
-
-## 📁 Estructura del proyecto
+## 📁 Estructura
 
 ```
 src/
-├── components/ui/     # Componentes de UI reutilizables
-├── assets/           # Imágenes y recursos
-├── App.jsx          # Componente principal
-├── App.css          # Estilos principales
-└── main.jsx         # Punto de entrada
-
+├── components/ui/   # componentes shadcn/ui
+├── assets/          # imágenes y logo
+├── lib/ · hooks/    # utilidades
+├── App.jsx          # la landing completa (secciones + estado)
+├── App.css          # tema (tokens de marca, claro/oscuro) + base
+└── main.jsx         # punto de entrada
 public/
-└── favicon.ico      # Icono del sitio
+└── favicon.ico · morfi-logo.png
 ```
 
-## 🎨 Personalización
+## 🎨 Marca
 
-### Colores de marca
-- **Primario:** Turquesa (#0891b2)
-- **Secundario:** Naranja (#f97316)
-- **Texto:** Gris oscuro (#374151)
+- **Turquesa** `#008CA2` — color señal (primario)
+- **Amarillo** `#FFD144` — chispa, uso puntual
+- **Teal-night** `#0B2A30` — profundidad y modo oscuro
+- Acentos por unidad: Viandas (turquesa), Empresas (azul), Performance (verde),
+  Market (oro), Gaucho Pet (arcilla)
 
-### Secciones principales
-1. **Hero** - Mensaje principal y CTA
-2. **Servicios** - Particulares y empresas
-3. **Cómo funciona** - Proceso en 3 pasos
-4. **Menú** - Productos con precios
-5. **FAQ** - Preguntas frecuentes
-6. **Contacto** - WhatsApp y locales
+## 📞 Locales
 
-## 📞 Información de contacto
-
-**WhatsApp:**
-- 221 604 4455 (Viandas diarias)
-- 221 561 3886 (Viandas congeladas)
-
-**Locales:**
-- Marcelo T de Alvear 628 - CABA
-- Calle 8 665, entre 45 y 46 - La Plata
-
-## 🔗 Enlaces importantes
-
-- **Menú completo:** https://www.pedidosporwhatsapp.com.ar/MorfiSemanal
-- **Dominio:** www.morfiviandas.com.ar
-
-## 📝 Notas para el desarrollador
-
-- Los botones "VER MENU" enlazan al catálogo de WhatsApp
-- El logo actual es solo "MORFI" (sin "viandas")
-- La sección Hero está simplificada (sin elementos de credibilidad)
-- Los precios están actualizados: $7500 principales, $6500 ensaladas
-
----
-
-**Desarrollado para Morfi Viandas** 🍽️
-
+- Marcelo T. de Alvear 628 — CABA
+- Calle 8 665, entre 45 y 46 — La Plata
