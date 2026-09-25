@@ -27,8 +27,19 @@ import corporateCateringImage from './assets/corporate_catering.jpg'
 import officeLunchImage from './assets/office_lunch.jpg'
 import morfiLogo from './assets/morfi-logo-nuevo.png'
 
+const WHATSAPP_URL = 'https://wa.me/5491166268100'
+
 function App() {
   const [activeService, setActiveService] = useState('particulares')
+
+  const handleWhatsAppClick = (e) => {
+    e.preventDefault()
+    if (typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion(WHATSAPP_URL)
+    } else {
+      window.location.href = WHATSAPP_URL
+    }
+  }
 
   const menuItems = [
     { name: "Albóndigas a la portuguesa con puré de papas", price: "$7500", category: "Principal" },
@@ -67,10 +78,12 @@ function App() {
               </nav>
             </div>
             
-            <Button className="bg-primary hover:bg-turquesa-oscuro-hover">
-              <Phone className="h-4 w-4 mr-2" />
-              Contactar
-            </Button>
+            <a href={WHATSAPP_URL} onClick={handleWhatsAppClick}>
+              <Button className="bg-primary hover:bg-turquesa-oscuro-hover">
+                <Phone className="h-4 w-4 mr-2" />
+                Contactar
+              </Button>
+            </a>
           </div>
         </div>
       </header>
@@ -88,7 +101,7 @@ function App() {
                 Más de 10 años de experiencia brindando soluciones alimentarias de calidad.
               </p>
               <div className="flex justify-center">
-                <a href="https://www.pedidosporwhatsapp.com.ar/MorfiSemanal" target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} onClick={handleWhatsAppClick}>
                   <button id="ver-menu" className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-lg font-semibold transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] border bg-primary text-white shadow-lg hover:bg-turquesa-oscuro-hover h-12 rounded-md px-8">VER MENU</button>
                 </a>
               </div>
@@ -348,7 +361,7 @@ function App() {
           </div>
           
           <div className="text-center mt-12">
-            <a href="https://www.pedidosporwhatsapp.com.ar/MorfiSemanal" target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} onClick={handleWhatsAppClick}>
               <button id="ver-menu-completo" className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] border bg-background shadow-xs hover:text-accent-foreground h-10 rounded-md px-6 border-primary text-primary hover:bg-turquesa-pastel-claro">VER MENU COMPLETO</button>
             </a>
           </div>
@@ -454,11 +467,13 @@ function App() {
                   en viandas saludables.
                 </p>
                 <div className="space-y-4">
-                  <Button size="lg" className="w-full bg-white text-primary hover:bg-gray-100">
-                    <Phone className="h-4 w-4 mr-2" />
-                    Contactar por WhatsApp
-                  </Button>
-                  <a href="https://www.pedidosporwhatsapp.com.ar/MorfiSemanal" target="_blank" rel="noopener noreferrer">
+                  <a href={WHATSAPP_URL} onClick={handleWhatsAppClick}>
+                    <Button size="lg" className="w-full bg-white text-primary hover:bg-gray-100">
+                      <Phone className="h-4 w-4 mr-2" />
+                      Contactar por WhatsApp
+                    </Button>
+                  </a>
+                  <a href={WHATSAPP_URL} onClick={handleWhatsAppClick}>
                     <button id="ver-menu-contacto" className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] border bg-background shadow-xs hover:text-accent-foreground h-10 rounded-md px-6 w-full border-white text-white hover:bg-white/10">VER MENU COMPLETO</button>
                   </a>
                 </div>
